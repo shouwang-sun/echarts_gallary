@@ -43,6 +43,7 @@ $.getJSON(uploadedDataURL, function (sourceData) {
             text: '邢临高速南澧河大桥在线状态评估',
             left: 'center'
         },
+        draggable: true,
         visualMap:{
             type: 'piecewise',
             pieces: [
@@ -71,8 +72,8 @@ $.getJSON(uploadedDataURL, function (sourceData) {
             type: 'sankey',
             nodes: targetData.nodes,
             links: targetData.links,
-            nodeWidth: 30,
-            nodeGap: 45,
+            nodeWidth: 50,
+            nodeGap: 55,
             layoutIterations: 1024,
             itemStyle: {
                 normal: {
