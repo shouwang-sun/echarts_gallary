@@ -169,7 +169,6 @@ var option = {
             },
             axisTick: {show: false},
             axisLabel: {color: '#fff', fontWeight: 'bold'},
-            data: []
         }
     ],
     // 系列列表，每个系列通过 type 决定自己的图表类型
@@ -314,8 +313,6 @@ var roadData = [];
 var warningData = [];
 // 绘图数据：桥梁在线评估
 var assessmentData = [];
-// 绘图数据：类目
-var categoryData = [];
 // 绘图数据：在线评估汇总
 var barData = [];
 // 加载绘图数据
@@ -348,7 +345,6 @@ $.get('data/bridge1.json', function (bridgeData) {
             value: bridgeData[i].location.concat(bridgeData[i].conditionAssessment),
             url: bridgeData[i].url
         });
-        categoryData.push(bridgeData[i].name);
         barData.push([
             bridgeData[i].name,
             bridgeData[i].conditionAssessment
@@ -356,9 +352,6 @@ $.get('data/bridge1.json', function (bridgeData) {
     }
     // 更新数据
     myChart.setOption(option = {
-        yAxis: [
-            {data: categoryData}
-        ],
         series: [
             {data: roadData},
             {data: warningData},
