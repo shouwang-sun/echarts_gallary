@@ -1,34 +1,21 @@
 var myChart = echarts.init(document.getElementById('chartDiv'));
 window.onresize = myChart.resize;
 
-var data = [];
-var now = $.now();
-var timeDelta = 1000;
-var value = Math.random();
-var maxDataLength = 300;
-
-function randomData() {
-    now = new Date( + now + timeDelta);
-    value = value + Math.random() * 20 - 10;
-    return {
-        name: now.toString(),
-        value: [now, value]
-    }
-}
+var channel = 'FCXF-X-03-S03';
+var yellowThreshold = 100;
+var redThreshold = 150;
 
 option = {
     backgroundColor: '#f5f5f5',
     title: {
-        text: '实时监测数据',
+        text: channel+' 通道实时监测数据',
         left: 'center',
         top: '3%',
         textStyle: {
             fontSize: 18,
             fontWeight: 'bold',
-            color: '#fff',
-            fontWeigth: 'bold',
-            textBorderColor: 'rgba(18, 89, 147, 1)',
-            textBorderWidth: 2
+            fontWeight: 'bold',
+            color: 'rgba(18, 89, 147, 1)',
         }
     },
     tooltip: {
@@ -45,10 +32,11 @@ option = {
     },
     visualMap: {
         type: 'piecewise',
+        seriesIndex: [0, 1],
         pieces: [
-            {min: 250},
-            {min: 200, max: 250},
-            {min: 0, max: 200}
+            {gte: redThreshold},
+            {gte: yellowThreshold, lt: redThreshold},
+            {lt: yellowThreshold}
         ],
         color: ['red', 'orange', 'green'],
         show: false
@@ -63,9 +51,6 @@ option = {
     dataZoom: {type: 'inside'},
     xAxis: {
         type: 'time',
-        // 把min与max注释掉，数据更新会变成向左移动的模式
-        min: function (value) { return Math.ceil(value.max/30000) * 30000 - 300000 },
-        max: function (value) { return Math.ceil(value.max/30000) * 30000 },
         splitNumber: 10,
         axisLine: {
             show: true,
@@ -80,10 +65,15 @@ option = {
             margin: 8,
             textStyle: {color: 'rgba(18, 89, 147, 0.8)', fontWeight: 'bold'}
         },
-        splitLine: {show: true}
+        splitLine: {show: true},
+        // 把min与max注释掉，数据更新会变成向左移动的模式
+         min: function (value) { return Math.ceil(value.max/30000) * 30000 - 300000 },
+         max: function (value) { return Math.ceil(value.max/30000) * 30000 },
     },
     yAxis: {
         type: 'value',
+        // scale: 是否脱离0值比例
+        scale: true,
         axisLine: {
             show: true,
             onZero: false,
@@ -98,28 +88,29 @@ option = {
             textStyle: {color: 'rgba(18, 89, 147, 0.8)', fontWeight: 'bold'}
         },
         splitLine: {show: true},
-        min: function (value) { return Math.floor(value.min/10) * 10 },
-        max: function (value) { return Math.ceil(value.max/10) * 10 },
+        // min: function (value) { return Math.floor(value.min/10) * 10 },
+        // max: function (value) { return Math.ceil(value.max/10) * 10 },
     },
     series: [
         {
             name: 'realtimeData',
             type: 'line',
-            data: data,
+            data: [],
             symbolSize: 6,
             showSymbol: false,
-            hoverAnimation: false,
+            // hoverAnimation: false,
+            animation: false,
             markLine: {
                 lineStyle: {
                     normal: {width: 1.5, opacity: 0.8}
                 },
                 label: {
                     normal: {
-                        color: '#fff',
+                        color: 'auto',
                         fontSize: 13,
-                        fontWeigth: 'bolder',
-                        textBorderColor: 'auto',
-                        textBorderWidth: 2,
+                        fontWeight: 'bold',
+                        // textBorderColor: 'auto',
+                        // textBorderWidth: 2,
                         formatter: function (params) { return params.name }
                     },
                     emphasis: {
@@ -129,14 +120,14 @@ option = {
                 data: [
                     {
                         name: '橙色预警阈值',
-                        yAxis: 200,
+                        yAxis: yellowThreshold,
                         lineStyle: {
                             normal: { color: 'orange' }
                         }
                     },
                     {
                         name: '红色预警阈值',
-                        yAxis: 250,
+                        yAxis: redThreshold,
                         lineStyle: {
                             normal: { color: 'red' }
                         }
@@ -150,6 +141,7 @@ option = {
                 },
                 label: {
                     normal: {
+                        fontSize: 13,
                         fontWeight: 'bold',
                         formatter: function (params) {return params.name + ':' + params.value.toPrecision(5)}
                     }
@@ -190,8 +182,8 @@ option = {
                     position: 'right',
                     align: 'left',
                     color: 'auto',
-                    fontWeight: 'bolder',
-                    textBorderWidth: 2,
+                    fontSize: 13,
+                    fontWeight: 'bold',
                     formatter: function (params) {
                         return params.value[0].toLocaleTimeString() + '\n' +
                                 params.value[1].toPrecision(5)
@@ -203,6 +195,20 @@ option = {
 };
 myChart.setOption(option);
 
+var now = $.now();
+var timeDelta = 1000;
+var value = 80;
+var data = [];
+var maxDataLength = 300;
+
+function randomData() {
+    now = new Date( + now + timeDelta);
+    value = value + Math.random() * 20 - 10;
+    return {
+        // name: now.toString(),
+        value: [now, value]
+    }
+}
 setInterval(
     function () {
         data.push(randomData());
