@@ -43,7 +43,7 @@ baofu_highway = [
         'name'               : '阜长线分离式立交',
         'location'           : [114.052989,38.881409],
         'conditionAssessment': 90,
-        'realtimeWarning'    : [],
+        'realtimeWarning'    : [2, 2],
         'url'                : ''
     },
     {
