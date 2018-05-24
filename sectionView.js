@@ -1,302 +1,364 @@
 // 初始化图表
-var myChart = echarts.init(document.getElementById('chartDiv'));
+let myChart = echarts.init(document.getElementById('chartDiv'));
 window.onresize = myChart.resize;
 
 // 数据集
-var basicInfo = {
-    'FCXF-X-03-S01': {'name': 'FCXF-X-03-S01', 'center': [289, 283], 'type': '应变传感器', 'unit': 'με', 'url': ''},
-    'FCXF-X-03-T01': {'name': 'FCXF-X-03-T01', 'center': [289, 283], 'type': '温度传感器', 'unit': '℃', 'url': ''},
-    'FCXF-X-03-S02': {'name': 'FCXF-X-03-S02', 'center': [289, 323], 'type': '应变传感器', 'unit': 'με', 'url': ''},
-    'FCXF-X-03-T02': {'name': 'FCXF-X-03-T02', 'center': [289, 323], 'type': '温度传感器', 'unit': '℃', 'url': ''},
-    'FCXF-X-03-S03': {'name': 'FCXF-X-03-S03', 'center': [289, 363], 'type': '应变传感器', 'unit': 'με', 'url': ''},
-    'FCXF-X-03-T03': {'name': 'FCXF-X-03-T03', 'center': [289, 363], 'type': '温度传感器', 'unit': '℃', 'url': ''},
-    'FCXF-X-03-S04': {'name': 'FCXF-X-03-S04', 'center': [878, 280], 'type': '应变传感器', 'unit': 'με', 'url': ''},
-    'FCXF-X-03-T04': {'name': 'FCXF-X-03-T04', 'center': [878, 280], 'type': '温度传感器', 'unit': '℃', 'url': ''},
-    'FCXF-X-03-S05': {'name': 'FCXF-X-03-S05', 'center': [878, 320], 'type': '应变传感器', 'unit': 'με', 'url': ''},
-    'FCXF-X-03-T05': {'name': 'FCXF-X-03-T05', 'center': [878, 320], 'type': '温度传感器', 'unit': '℃', 'url': ''},
-    'FCXF-X-03-S06': {'name': 'FCXF-X-03-S06', 'center': [878, 360], 'type': '应变传感器', 'unit': 'με', 'url': ''},
-    'FCXF-X-03-T06': {'name': 'FCXF-X-03-T06', 'center': [878, 360], 'type': '温度传感器', 'unit': '℃', 'url': ''},
-    'FCXF-X-02-A01': {'name': 'FCXF-X-02-A01', 'center': [319, 387], 'type': '加速度传感器', 'unit': 'gal', 'url': ''},
-    'FCXF-X-02-A02': {'name': 'FCXF-X-02-A02', 'center': [844, 387], 'type': '加速度传感器', 'unit': 'gal', 'url': ''},
-    'FCXF-X-03-S07': {'name': 'FCXF-X-03-S07', 'center': [289, 303], 'type': '振弦传感器', 'unit': 'με', 'url': ''},
-    'FCXF-X-03-S08': {'name': 'FCXF-X-03-S08', 'center': [289, 343], 'type': '振弦传感器', 'unit': 'με', 'url': ''},
-    'FCXF-X-03-S09': {'name': 'FCXF-X-03-S09', 'center': [878, 300], 'type': '振弦传感器', 'unit': 'με', 'url': ''},
-    'FCXF-X-03-S10': {'name': 'FCXF-X-03-S10', 'center': [878, 340], 'type': '振弦传感器', 'unit': 'με', 'url': ''}
+let topology = {
+	name: 'FCXF-X-03',
+	image_url: 'image/FCXF-X-03.png',
+	subset: [
+		{
+			center: [289, 363],
+			subset: [ {name: 'FCXF-X-03-S03'}, {name: 'FCXF-X-03-T03'} ]
+		},
+		{
+			center: [289, 343],
+			subset: [ {name: 'FCXF-X-03-S08'}, {name: 'FCXF-X-03-T08'} ]
+		},
+		{
+			center: [289, 323],
+			subset: [ {name: 'FCXF-X-03-S02'}, {name: 'FCXF-X-03-T02'} ]
+		},
+		{
+			center: [289, 303],
+			subset: [ {name: 'FCXF-X-03-S07'}, {name: 'FCXF-X-03-T07'} ]
+		},
+		{
+			center: [289, 283],
+			subset: [ {name: 'FCXF-X-03-S01'}, {name: 'FCXF-X-03-T01'} ]
+		},
+		{
+			center: [878, 360],
+			subset: [ {name: 'FCXF-X-03-S06'}, {name: 'FCXF-X-03-T06'} ]
+		},
+		{
+			center: [878, 340],
+			subset: [ {name: 'FCXF-X-03-S10'}, {name: 'FCXF-X-03-T10'} ]
+		},
+		{
+			center: [878, 320],
+			subset: [ {name: 'FCXF-X-03-S05'}, {name: 'FCXF-X-03-T05'} ]
+		},
+		{
+			center: [878, 300],
+			subset: [ {name: 'FCXF-X-03-S09'}, {name: 'FCXF-X-03-T09'} ]
+		},
+		{
+			center: [878, 280],
+			subset: [ {name: 'FCXF-X-03-S04'}, {name: 'FCXF-X-03-T04'} ]
+		},
+		{
+			center: [319, 387],
+			subset: [ {name: 'FCXF-X-03-A01'} ]
+		},
+		{
+			center: [844, 387],
+			subset: [ {name: 'FCXF-X-03-A02'} ]
+		}
+	]
 };
-var warningThreshold = {
-    'FCXF-X-03-S01': [-8, -5, 5, 8],
-    'FCXF-X-03-T01': [-8, -5, 5, 8],
-    'FCXF-X-03-S02': [-8, -5, 5, 8],
-    'FCXF-X-03-T02': [-8, -5, 5, 8],
-    'FCXF-X-03-S03': [-8, -5, 5, 8],
-    'FCXF-X-03-T03': [-8, -5, 5, 8],
-    'FCXF-X-03-S04': [-8, -5, 5, 8],
-    'FCXF-X-03-T04': [-8, -5, 5, 8],
-    'FCXF-X-03-S05': [-8, -5, 5, 8],
-    'FCXF-X-03-T05': [-8, -5, 5, 8],
-    'FCXF-X-03-S06': [-8, -5, 5, 8],
-    'FCXF-X-03-T06': [-8, -5, 5, 8],
-    'FCXF-X-02-A01': [-8, -5, 5, 8],
-    'FCXF-X-02-A02': [-8, -5, 5, 8],
-    'FCXF-X-03-S07': [-8, -5, 5, 8],
-    'FCXF-X-03-S08': [-8, -5, 5, 8],
-    'FCXF-X-03-S09': [-8, -5, 5, 8],
-    'FCXF-X-03-S10': [-8, -5, 5, 8]
+let basicInfo = {
+	'FCXF-X-03-S01': {name: 'FCXF-X-03-S01', type: '应变传感器', unit: 'με', url: ''},
+	'FCXF-X-03-T01': {name: 'FCXF-X-03-T01', type: '温度传感器', unit: '℃', url: ''},
+	'FCXF-X-03-S02': {name: 'FCXF-X-03-S02', type: '应变传感器', unit: 'με', url: ''},
+	'FCXF-X-03-T02': {name: 'FCXF-X-03-T02', type: '温度传感器', unit: '℃', url: ''},
+	'FCXF-X-03-S03': {name: 'FCXF-X-03-S03', type: '应变传感器', unit: 'με', url: ''},
+	'FCXF-X-03-T03': {name: 'FCXF-X-03-T03', type: '温度传感器', unit: '℃', url: ''},
+	'FCXF-X-03-S04': {name: 'FCXF-X-03-S04', type: '应变传感器', unit: 'με', url: ''},
+	'FCXF-X-03-T04': {name: 'FCXF-X-03-T04', type: '温度传感器', unit: '℃', url: ''},
+	'FCXF-X-03-S05': {name: 'FCXF-X-03-S05', type: '应变传感器', unit: 'με', url: ''},
+	'FCXF-X-03-T05': {name: 'FCXF-X-03-T05', type: '温度传感器', unit: '℃', url: ''},
+	'FCXF-X-03-S06': {name: 'FCXF-X-03-S06', type: '应变传感器', unit: 'με', url: ''},
+	'FCXF-X-03-T06': {name: 'FCXF-X-03-T06', type: '温度传感器', unit: '℃', url: ''},
+	'FCXF-X-03-A01': {name: 'FCXF-X-03-A01', type: '加速度传感器', unit: 'gal', url: ''},
+	'FCXF-X-03-A02': {name: 'FCXF-X-03-A02', type: '加速度传感器', unit: 'gal', url: ''},
+	'FCXF-X-03-S07': {name: 'FCXF-X-03-S07', type: '振弦传感器', unit: 'με', url: ''},
+	'FCXF-X-03-T07': {name: 'FCXF-X-03-T07', type: '温度传感器', unit: '℃', url: ''},
+	'FCXF-X-03-S08': {name: 'FCXF-X-03-S08', type: '振弦传感器', unit: 'με', url: ''},
+	'FCXF-X-03-T08': {name: 'FCXF-X-03-T08', type: '温度传感器', unit: '℃', url: ''},
+	'FCXF-X-03-S09': {name: 'FCXF-X-03-S09', type: '振弦传感器', unit: 'με', url: ''},
+	'FCXF-X-03-T09': {name: 'FCXF-X-03-T09', type: '温度传感器', unit: '℃', url: ''},
+	'FCXF-X-03-S10': {name: 'FCXF-X-03-S10', type: '振弦传感器', unit: 'με', url: ''},
+	'FCXF-X-03-T10': {name: 'FCXF-X-03-T10', type: '温度传感器', unit: '℃', url: ''}
 };
-var realtimeData = {
-    'FCXF-X-03-S01': 0,
-    'FCXF-X-03-T01': 0,
-    'FCXF-X-03-S02': 0,
-    'FCXF-X-03-T02': 0,
-    'FCXF-X-03-S03': 0,
-    'FCXF-X-03-T03': 0,
-    'FCXF-X-03-S04': 0,
-    'FCXF-X-03-T04': 7,
-    'FCXF-X-03-S05': 0,
-    'FCXF-X-03-T05': 0,
-    'FCXF-X-03-S06': 0,
-    'FCXF-X-03-T06': 0,
-    'FCXF-X-02-A01': 0,
-    'FCXF-X-02-A02': 0,
-    'FCXF-X-03-S07': 0,
-    'FCXF-X-03-S08': 0,
-    'FCXF-X-03-S09': 0,
-    'FCXF-X-03-S10': 0
+let warningThreshold = {
+	'FCXF-X-03-S01': [-8, -5, 5, 8],
+	'FCXF-X-03-T01': [-8, -5, 5, 8],
+	'FCXF-X-03-S02': [-8, -5, 5, 8],
+	'FCXF-X-03-T02': [-8, -5, 5, 8],
+	'FCXF-X-03-S03': [-8, -5, 5, 8],
+	'FCXF-X-03-T03': [-8, -5, 5, 8],
+	'FCXF-X-03-S04': [-8, -5, 5, 8],
+	'FCXF-X-03-T04': [-8, -5, 5, 8],
+	'FCXF-X-03-S05': [-8, -5, 5, 8],
+	'FCXF-X-03-T05': [-8, -5, 5, 8],
+	'FCXF-X-03-S06': [-8, -5, 5, 8],
+	'FCXF-X-03-T06': [-8, -5, 5, 8],
+	'FCXF-X-03-A01': [-8, -5, 5, 8],
+	'FCXF-X-03-A02': [-8, -5, 5, 8],
+	'FCXF-X-03-S07': [-8, -5, 5, 8],
+	'FCXF-X-03-T07': [-8, -5, 5, 8],
+	'FCXF-X-03-S08': [-8, -5, 5, 8],
+	'FCXF-X-03-T08': [-8, -5, 5, 8],
+	'FCXF-X-03-S09': [-8, -5, 5, 8],
+	'FCXF-X-03-T09': [-8, -5, 5, 8],
+	'FCXF-X-03-S10': [-8, -5, 5, 8],
+	'FCXF-X-03-T10': [-8, -5, 5, 8]
+};
+let realtimeData = {
+	'FCXF-X-03-S01': 0,
+	'FCXF-X-03-T01': 0,
+	'FCXF-X-03-S02': 0,
+	'FCXF-X-03-T02': 0,
+	'FCXF-X-03-S03': 0,
+	'FCXF-X-03-T03': 0,
+	'FCXF-X-03-S04': 0,
+	'FCXF-X-03-T04': 7,
+	'FCXF-X-03-S05': 0,
+	'FCXF-X-03-T05': 0,
+	'FCXF-X-03-S06': 0,
+	'FCXF-X-03-T06': 0,
+	'FCXF-X-03-A01': 0,
+	'FCXF-X-03-A02': 0,
+	'FCXF-X-03-S07': 0,
+	'FCXF-X-03-T07': 0,
+	'FCXF-X-03-S08': 0,
+	'FCXF-X-03-T08': 0,
+	'FCXF-X-03-S09': 0,
+	'FCXF-X-03-T09': 0,
+	'FCXF-X-03-S10': 0,
+	'FCXF-X-03-T10': 0
 };
 
-var data = basicInfo;
-for ( var sensor in data ) { data[sensor].activated = 1; }
-
-function getWarningStatus(realtimeData, warningThreshold) {
-    var updatingData = {};
-    for ( var sensor in realtimeData ) {
-        var value = realtimeData[sensor];
-        var threshold = warningThreshold[sensor];
-        var status = null;
-        if ( value <= threshold[0] ) {
-            status = 'red';
-        }
-        else if ( value > threshold[0] && value <= threshold[1] ) {
-            status = 'yellow';
-        }
-        else if ( value > threshold[1] && value < threshold[2] ) {
-            status = 'green';
-        }
-        else if ( value >= threshold[2] && value < threshold[3] ) {
-            status = 'yellow';
-        }
-        else if ( value >= threshold[3] ) {
-            status = 'red';
-        }
-        else {
-            console.log('invalid warning thresholds');
-        }
-        updatingData[sensor] = { 'value': value, 'status': status }
-    }
-    return updatingData;
-}
+// 生成绘图数据集
+let center = [];
+let dataset = [];
+topology.subset.forEach(function (element) {
+	center.push(element.center);
+	dataset.push({source: element.subset});
+})
+dataset = updateDataset(dataset, basicInfo);
 updatingData = getWarningStatus(realtimeData, warningThreshold);
-$.extend(true, data, updatingData);
-
-function groupByCenter(data, center) {
-    var dataset = [];
-    for (var sensor in data) {
-        var i = 0;
-        while ( i < center.length ) {
-            if ( center[i].toString() == data[sensor].center.toString() ) break;
-            i++;
-        }
-        if ( i == center.length ) {
-            center.push(data[sensor].center);
-        }
-        if ( i == dataset.length ) {
-            dataset.push({'source': []});
-        }
-        dataset[i].source.push(data[sensor]);
-    }
-    return dataset;
+dataset = updateDataset(dataset, updatingData);
+let activated = {};
+for (let sensor in realtimeData) {
+	activated[sensor] = {activated: 1};
 }
-var center = [];
-var dataset = groupByCenter(data, center);
-
-// 富文本标签
-var rich = {
-    labelName: {
-        fontSize: 12,
-        fontWeight: 'bold',
-        align: 'center',
-        padding: [0, 0, 6, 0]
-    },
-    labelLine: {
-        width: '100%',
-        height: 0,
-        borderColor: 'auto',
-        borderWidth: 0.5
-    },
-    gap: {
-        height: 2
-    },
-    redLabelData: {
-        backgroundColor: 'red',
-        color: 'white',
-        fontSize: 12,
-        fontWeight: 'bold',
-        align: 'center',
-        padding: [3, 3, 3, 3],
-        borderRadius: 3
-    },
-    yellowLabelData: {
-        backgroundColor: 'orange',
-        color: 'white',
-        fontSize: 12,
-        fontWeight: 'bold',
-        align: 'center',
-        padding: [3, 3, 3, 3],
-        borderRadius: 3
-    },
-    greenLabelData: {
-        backgroundColor: 'green',
-        color: 'white',
-        fontSize: 12,
-        fontWeight: 'bold',
-        align: 'center',
-        padding: [3, 3, 3, 3],
-        borderRadius: 3
-    }
-};
-function labelFormatter(params) {
-    var name = params.data.name;
-    var value = params.data.value;
-    var unit = params.data.unit;
-    var status = params.data.status;
-    if (value) {
-        return '{labelName|' + name + '}\n' +
-            '{gap|}\n{labelLine|}\n{gap|}\n' +
-            '{' + status + 'LabelData|' + value.toFixed(3) + ' ' + unit + '}';
-    }
-    else {
-        return '{labelName|' + name + '}\n' +
-            '{gap|}\n{labelLine|}\n{gap|}\n' +
-            '{' + status + 'LabelData|' + '-.---' + ' ' + unit + '}';
-    }
-}
-
-// 饼图通用设置
-var pieOptions = {
-    type: 'pie',
-    center: [],
-    radius: [0, 9],
-    stillShowZeroSum: false,
-    LegendHoverLink: true,
-    itemStyle: {
-        opacity: 0.5
-    },
-    label: {show: false},
-    emphasis: {
-        itemStyle: {
-            opacity: 1.0
-        },
-        label: {
-            show: true,
-            formatter: labelFormatter,
-            rich: rich
-        },
-    },
-    datasetIndex: null,
-    encode: {
-        name: 'name',
-        value: 'activated',
-        itemID: 'name',
-        itemName: 'type'
-    }
-};
-// 绘图系列设置
-var series = [];
-for ( var i=0; i<center.length; i++ ) {
-    series.push($.extend({}, pieOptions,
-        {
-            center: center[i],
-            datasetIndex: i
-        }
-    ));
-}
+dataset = updateDataset(dataset, activated);
 
 // 图表设置
-var option = {
-    backgroundColor: 'rgba(255, 255, 255, 0.5)',
-    title: {
-        text: '阜长线分离式立交主梁截面三数据视图',
-        textStyle: {
-            color: 'rgba(18, 89, 147, 0.75)',
-            fontSize: 18,
-            fontWeight: 'bold'
-        }
-    },
-    dataset: dataset,
-    legend: {
-        show: true,
-        selectedMode: 'multiple',
-        orient: 'vertical',
-        left: 10,
-        bottom: 10
-    },
-    animation: false
+let option = {
+	backgroundColor: 'rgba(255, 255, 255, 0.5)',
+	title: {
+		text: '阜长线分离式立交主梁截面三数据视图',
+		textStyle: {
+			color: 'rgba(18, 89, 147, 0.75)',
+			fontSize: 18,
+			fontWeight: 'bold'
+		}
+	},
+	dataset: dataset,
+	legend: {
+		show: true,
+		selectedMode: 'multiple',
+		orient: 'vertical',
+		left: 10,
+		bottom: 10
+	},
+	animation: false,
+	series: []
 };
-$.extend(option, {series: series});
+
+// 绘图系列设置
+for (let i=0; i<center.length; i++) {
+	let pieChart = {
+		type: 'pie',
+		radius: [0, 9],
+		stillShowZeroSum: false,
+		LegendHoverLink: true,
+		itemStyle: {
+			opacity: 0.5
+		},
+		label: {show: false},
+		emphasis: {
+			itemStyle: {
+				opacity: 1.0
+			},
+			label: {
+				show: true,
+				backgroundColor: 'rgba(255, 255, 255, 0.8)',
+				formatter(params) {
+					let name = params.data.name;
+					let value = params.data.value;
+					let unit = params.data.unit;
+					let status = params.data.status;
+					if (value) {
+						value = value.toFixed(3);
+					} else {
+						value = '-.---';
+					}
+					return `{labelName|${name}}\n{gap|}\n{labelLine|}\n{gap|}\n{${status}LabelData|${value} ${unit}}`;
+				},
+				rich: {
+					labelName: {
+						fontSize: 12,
+						fontWeight: 'bold',
+						align: 'center',
+						padding: [0, 0, 6, 0]
+					},
+					labelLine: {
+						width: '100%',
+						height: 0,
+						borderColor: 'auto',
+						borderWidth: 0.5
+					},
+					gap: {
+						height: 2
+					},
+					redLabelData: {
+						backgroundColor: 'red',
+						color: 'white',
+						fontSize: 12,
+						fontWeight: 'bold',
+						align: 'center',
+						padding: [3, 3, 3, 3],
+						borderRadius: 3
+					},
+					yellowLabelData: {
+						backgroundColor: 'orange',
+						color: 'white',
+						fontSize: 12,
+						fontWeight: 'bold',
+						align: 'center',
+						padding: [3, 3, 3, 3],
+						borderRadius: 3
+					},
+					greenLabelData: {
+						backgroundColor: 'green',
+						color: 'white',
+						fontSize: 12,
+						fontWeight: 'bold',
+						align: 'center',
+						padding: [3, 3, 3, 3],
+						borderRadius: 3
+					}
+				}
+			},
+		},
+		encode: {
+			name: 'name',
+			value: 'activated',
+			itemID: 'name',
+			itemName: 'type'
+		}
+	};
+	// update serie's center and datasetIndex
+	pieChart.center = center[i];
+	pieChart.datasetIndex = i;
+	option.series.push(pieChart);
+}
 myChart.setOption(option);
 
 // 用户交互设置
-var selectedSensors = new Set();
-var currentSensor = new String();
-myChart.on('click', function (params) {
-    if ( params.componentType == 'series' && params.componentSubType == 'pie' ) {
-        currentSensor = params.data.name;
-        if ( selectedSensors.has(currentSensor) ) {
-            selectedSensors.delete(currentSensor);
-            currentSensor = '';
-        }
-        else {
-            selectedSensors.add(currentSensor)
-        }
-    }
-});
+let selectedSensors = new Set();
+for ( sensor in basicInfo ) {
+	selectedSensors.add(sensor);
+}
+let currentSensor = new String();
+
+let callbacks = {
+	click(params) {
+		if ( params.componentType == 'series' && params.componentSubType == 'pie' ) {
+			currentSensor = params.data.name;
+			if ( selectedSensors.has(currentSensor) ) {
+				selectedSensors.delete(currentSensor);
+				currentSensor = '';
+			}
+			else {
+				selectedSensors.add(currentSensor)
+			}
+		}
+	},
+	dblclick(params) {
+		if (params.componentType == 'series' && params.componentSubType == 'pie') {
+			window.open(params.data.url, '_blank');
+		}
+	}
+};
+for(let event in callbacks) {
+	myChart.on(event, callbacks[event]);
+}
 
 document.onkeydown = function (event) {
-    if ( event.code == 'Delete' && currentSensor != '' ) {
-        data[currentSensor].activated = null; // 若data的某一项的activated值为null，那么它不会在绘图中显示出来。
-    }
-    event.preventDefault();
+	if ( event.code == 'Delete' && currentSensor != '' ) {
+		data[currentSensor].activated = null; // 若data的某一项的activated值为null，那么它不会在绘图中显示出来。
+	}
+	event.preventDefault();
 };
-
-myChart.on('dblclick', function (params) {
-    if (params.componentType == 'series' && params.componentSubType == 'pie') {
-        window.open(params.data.url, '_blank');
-    }
-});
 
 // 数据更新
 setInterval(function () {
-    for (var sensor in realtimeData) {
-        realtimeData[sensor] = Math.random() * 10;
-    }
-    updatingData = getWarningStatus(realtimeData, warningThreshold);
-    $.extend(true, data, updatingData);
-    dataset = groupByCenter(data, center);
-    myChart.setOption(option);
-    for ( i=0; i<dataset.length; i++ ) {
-        for ( j=0; j<dataset[i].source.length; j++ ) {
-            if ( selectedSensors.has(dataset[i].source[j].name) ) {
-                myChart.dispatchAction({
-                    type: 'downplay',
-                    seriesIndex: i,
-                    dataIndex: j
-                });
-                myChart.dispatchAction({
-                    type: 'highlight',
-                    seriesIndex: i,
-                    dataIndex: j
-                });
-            }
-        }
-    }
+	for (let sensor in realtimeData) {
+		realtimeData[sensor] = Math.random() * 10;
+	}
+	updatingData = getWarningStatus(realtimeData, warningThreshold);
+	dataset = updateDataset(dataset, updatingData);
+	myChart.setOption(option);
+	console.log(option.series);
+	for ( let i=0; i<dataset.length; i++ ) {
+		for ( let j=0; j<dataset[i].source.length; j++ ) {
+			if ( selectedSensors.has(dataset[i].source[j].name) ) {
+				myChart.dispatchAction({
+					type: 'downplay',
+					seriesIndex: i,
+					dataIndex: j
+				});
+				myChart.dispatchAction({
+					type: 'highlight',
+					seriesIndex: i,
+					dataIndex: j
+				});
+			}
+		}
+	}
 }, 1000);
+
+function updateDataset(dataset, updatingData) {
+	dataset.forEach(function (subset) {
+		subset.source.forEach(function (sensor) {
+			$.extend(sensor, updatingData[sensor.name]);
+		});
+	});
+	return dataset;
+}
+
+function getWarningStatus(realtimeData, warningThreshold) {
+	let updatingData = {};
+	for ( sensor in realtimeData ) {
+		let value = realtimeData[sensor];
+		let threshold = warningThreshold[sensor];
+		let status = null;
+		if ( value <= threshold[0] ) {
+			status = 'red';
+		}
+		else if ( value > threshold[0] && value <= threshold[1] ) {
+			status = 'yellow';
+		}
+		else if ( value > threshold[1] && value < threshold[2] ) {
+			status = 'green';
+		}
+		else if ( value >= threshold[2] && value < threshold[3] ) {
+			status = 'yellow';
+		}
+		else if ( value >= threshold[3] ) {
+			status = 'red';
+		}
+		else {
+			console.log('invalid warning thresholds');
+		}
+		updatingData[sensor] = {value, status}
+	}
+	return updatingData;
+}
+
+/* vim:set ts=4 sw=4 sts=4: */
