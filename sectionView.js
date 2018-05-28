@@ -3,57 +3,57 @@ let myChart = echarts.init(document.getElementById('chartDiv'));
 window.onresize = myChart.resize;
 
 // 数据集
-let topology = {
+let view = {
 	name: 'FCXF-X-03',
 	image_url: 'image/FCXF-X-03.png',
 	subset: [
 		{
 			center: [289, 363],
-			subset: [ {name: 'FCXF-X-03-S03'}, {name: 'FCXF-X-03-T03'} ]
+			subset: ['FCXF-X-03-S03', 'FCXF-X-03-T03']
 		},
 		{
 			center: [289, 343],
-			subset: [ {name: 'FCXF-X-03-S08'}, {name: 'FCXF-X-03-T08'} ]
+			subset: ['FCXF-X-03-S08', 'FCXF-X-03-T08']
 		},
 		{
 			center: [289, 323],
-			subset: [ {name: 'FCXF-X-03-S02'}, {name: 'FCXF-X-03-T02'} ]
+			subset: ['FCXF-X-03-S02', 'FCXF-X-03-T02']
 		},
 		{
 			center: [289, 303],
-			subset: [ {name: 'FCXF-X-03-S07'}, {name: 'FCXF-X-03-T07'} ]
+			subset: ['FCXF-X-03-S07', 'FCXF-X-03-T07']
 		},
 		{
 			center: [289, 283],
-			subset: [ {name: 'FCXF-X-03-S01'}, {name: 'FCXF-X-03-T01'} ]
+			subset: ['FCXF-X-03-S01', 'FCXF-X-03-T01']
 		},
 		{
 			center: [878, 360],
-			subset: [ {name: 'FCXF-X-03-S06'}, {name: 'FCXF-X-03-T06'} ]
+			subset: ['FCXF-X-03-S06', 'FCXF-X-03-T06']
 		},
 		{
 			center: [878, 340],
-			subset: [ {name: 'FCXF-X-03-S10'}, {name: 'FCXF-X-03-T10'} ]
+			subset: [ 'FCXF-X-03-S10', 'FCXF-X-03-T10' ]
 		},
 		{
 			center: [878, 320],
-			subset: [ {name: 'FCXF-X-03-S05'}, {name: 'FCXF-X-03-T05'} ]
+			subset: [ 'FCXF-X-03-S05', 'FCXF-X-03-T05' ]
 		},
 		{
 			center: [878, 300],
-			subset: [ {name: 'FCXF-X-03-S09'}, {name: 'FCXF-X-03-T09'} ]
+			subset: ['FCXF-X-03-S09', 'FCXF-X-03-T09']
 		},
 		{
 			center: [878, 280],
-			subset: [ {name: 'FCXF-X-03-S04'}, {name: 'FCXF-X-03-T04'} ]
+			subset: ['FCXF-X-03-S04', 'FCXF-X-03-T04']
 		},
 		{
 			center: [319, 387],
-			subset: [ {name: 'FCXF-X-03-A01'} ]
+			subset: ['FCXF-X-03-A01']
 		},
 		{
 			center: [844, 387],
-			subset: [ {name: 'FCXF-X-03-A02'} ]
+			subset: ['FCXF-X-03-A02']
 		}
 	]
 };
@@ -72,14 +72,14 @@ let basicInfo = {
 	'FCXF-X-03-T06': {name: 'FCXF-X-03-T06', type: '温度传感器', unit: '℃', url: ''},
 	'FCXF-X-03-A01': {name: 'FCXF-X-03-A01', type: '加速度传感器', unit: 'gal', url: ''},
 	'FCXF-X-03-A02': {name: 'FCXF-X-03-A02', type: '加速度传感器', unit: 'gal', url: ''},
-	'FCXF-X-03-S07': {name: 'FCXF-X-03-S07', type: '振弦传感器', unit: 'με', url: ''},
-	'FCXF-X-03-T07': {name: 'FCXF-X-03-T07', type: '温度传感器', unit: '℃', url: ''},
-	'FCXF-X-03-S08': {name: 'FCXF-X-03-S08', type: '振弦传感器', unit: 'με', url: ''},
-	'FCXF-X-03-T08': {name: 'FCXF-X-03-T08', type: '温度传感器', unit: '℃', url: ''},
-	'FCXF-X-03-S09': {name: 'FCXF-X-03-S09', type: '振弦传感器', unit: 'με', url: ''},
-	'FCXF-X-03-T09': {name: 'FCXF-X-03-T09', type: '温度传感器', unit: '℃', url: ''},
-	'FCXF-X-03-S10': {name: 'FCXF-X-03-S10', type: '振弦传感器', unit: 'με', url: ''},
-	'FCXF-X-03-T10': {name: 'FCXF-X-03-T10', type: '温度传感器', unit: '℃', url: ''}
+	'FCXF-X-03-S07': {name: 'FCXF-X-03-S07', type: '振弦应变传感器', unit: 'με', url: ''},
+	'FCXF-X-03-T07': {name: 'FCXF-X-03-T07', type: '振弦温度传感器', unit: '℃', url: ''},
+	'FCXF-X-03-S08': {name: 'FCXF-X-03-S08', type: '振弦应变传感器', unit: 'με', url: ''},
+	'FCXF-X-03-T08': {name: 'FCXF-X-03-T08', type: '振弦温度传感器', unit: '℃', url: ''},
+	'FCXF-X-03-S09': {name: 'FCXF-X-03-S09', type: '振弦应变传感器', unit: 'με', url: ''},
+	'FCXF-X-03-T09': {name: 'FCXF-X-03-T09', type: '振弦温度传感器', unit: '℃', url: ''},
+	'FCXF-X-03-S10': {name: 'FCXF-X-03-S10', type: '振弦应变传感器', unit: 'με', url: ''},
+	'FCXF-X-03-T10': {name: 'FCXF-X-03-T10', type: '振弦温度传感器', unit: '℃', url: ''}
 };
 let warningThreshold = {
 	'FCXF-X-03-S01': [-8, -5, 5, 8],
@@ -113,7 +113,7 @@ let realtimeData = {
 	'FCXF-X-03-S03': 0,
 	'FCXF-X-03-T03': 0,
 	'FCXF-X-03-S04': 0,
-	'FCXF-X-03-T04': 7,
+	'FCXF-X-03-T04': 0,
 	'FCXF-X-03-S05': 0,
 	'FCXF-X-03-T05': 0,
 	'FCXF-X-03-S06': 0,
@@ -131,20 +131,23 @@ let realtimeData = {
 };
 
 // 生成绘图数据集
+let data = $.extend({}, basicInfo);
+for (let sensor in data) {
+	data[sensor].activated = 1;
+}
+updatingData = getWarningStatus(realtimeData, warningThreshold);
+$.extend(true, data, updatingData);
+
 let center = [];
 let dataset = [];
-topology.subset.forEach(function (element) {
+view.subset.forEach(function (element) {
 	center.push(element.center);
-	dataset.push({source: element.subset});
+	let source = [];
+	element.subset.forEach(function (sensor) {
+		source.push(data[sensor]);
+	})
+	dataset.push({source});
 })
-dataset = updateDataset(dataset, basicInfo);
-updatingData = getWarningStatus(realtimeData, warningThreshold);
-dataset = updateDataset(dataset, updatingData);
-let activated = {};
-for (let sensor in realtimeData) {
-	activated[sensor] = {activated: 1};
-}
-dataset = updateDataset(dataset, activated);
 
 // 图表设置
 let option = {
@@ -302,9 +305,8 @@ setInterval(function () {
 		realtimeData[sensor] = Math.random() * 10;
 	}
 	updatingData = getWarningStatus(realtimeData, warningThreshold);
-	dataset = updateDataset(dataset, updatingData);
+	$.extend(true, data, updatingData);
 	myChart.setOption(option);
-	console.log(option.series);
 	for ( let i=0; i<dataset.length; i++ ) {
 		for ( let j=0; j<dataset[i].source.length; j++ ) {
 			if ( selectedSensors.has(dataset[i].source[j].name) ) {
@@ -322,15 +324,6 @@ setInterval(function () {
 		}
 	}
 }, 1000);
-
-function updateDataset(dataset, updatingData) {
-	dataset.forEach(function (subset) {
-		subset.source.forEach(function (sensor) {
-			$.extend(sensor, updatingData[sensor.name]);
-		});
-	});
-	return dataset;
-}
 
 function getWarningStatus(realtimeData, warningThreshold) {
 	let updatingData = {};
