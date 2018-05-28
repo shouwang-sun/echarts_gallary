@@ -1,0 +1,209 @@
+{
+    "subset": [
+        {
+            "subset": [],
+            "image_url": "",
+            "name": "截面-01",
+            "location": []
+        },
+        {
+            "subset": [
+                {
+                    "subset": [
+                        {
+                            "name": "FCXF-X-03-S01"
+                        },
+                        {
+                            "name": "FCXF-X-03-T01"
+                        }
+                    ],
+                    "image_url": "image/FCXF-X-03.png",
+                    "name": "测点-01",
+                    "location": [
+                        289,
+                        283
+                    ]
+                },
+                {
+                    "subset": [
+                        {
+                            "name": "FCXF-X-03-S02"
+                        },
+                        {
+                            "name": "FCXF-X-03-T02"
+                        }
+                    ],
+                    "image_url": "image/FCXF-X-03.png",
+                    "name": "测点-02",
+                    "location": [
+                        289,
+                        323
+                    ]
+                },
+                {
+                    "subset": [
+                        {
+                            "name": "FCXF-X-03-S03"
+                        },
+                        {
+                            "name": "FCXF-X-03-T03"
+                        }
+                    ],
+                    "image_url": "image/FCXF-X-03.png",
+                    "name": "测点-03",
+                    "location": [
+                        289,
+                        363
+                    ]
+                },
+                {
+                    "subset": [
+                        {
+                            "name": "FCXF-X-03-S04"
+                        },
+                        {
+                            "name": "FCXF-X-03-T04"
+                        }
+                    ],
+                    "image_url": "image/FCXF-X-03.png",
+                    "name": "测点-04",
+                    "location": [
+                        878,
+                        280
+                    ]
+                },
+                {
+                    "subset": [
+                        {
+                            "name": "FCXF-X-03-S05"
+                        },
+                        {
+                            "name": "FCXF-X-03-T05"
+                        }
+                    ],
+                    "image_url": "image/FCXF-X-03.png",
+                    "name": "测点-05",
+                    "location": [
+                        878,
+                        320
+                    ]
+                },
+                {
+                    "subset": [
+                        {
+                            "name": "FCXF-X-03-S06"
+                        },
+                        {
+                            "name": "FCXF-X-03-T06"
+                        }
+                    ],
+                    "image_url": "image/FCXF-X-03.png",
+                    "name": "测点-06",
+                    "location": [
+                        878,
+                        360
+                    ]
+                },
+                {
+                    "subset": [
+                        {
+                            "name": "FCXF-X-03-S07"
+                        },
+                        {
+                            "name": "FCXF-X-03-T07"
+                        }
+                    ],
+                    "image_url": "image/FCXF-X-03.png",
+                    "name": "测点-07",
+                    "location": [
+                        289,
+                        303
+                    ]
+                },
+                {
+                    "subset": [
+                        {
+                            "name": "FCXF-X-03-S08"
+                        },
+                        {
+                            "name": "FCXF-X-03-T08"
+                        }
+                    ],
+                    "image_url": "image/FCXF-X-03.png",
+                    "name": "测点-08",
+                    "location": [
+                        289,
+                        343
+                    ]
+                },
+                {
+                    "subset": [
+                        {
+                            "name": "FCXF-X-03-S09"
+                        },
+                        {
+                            "name": "FCXF-X-03-T09"
+                        }
+                    ],
+                    "image_url": "image/FCXF-X-03.png",
+                    "name": "测点-09",
+                    "location": [
+                        878,
+                        300
+                    ]
+                },
+                {
+                    "subset": [
+                        {
+                            "name": "FCXF-X-03-S10"
+                        },
+                        {
+                            "name": "FCXF-X-03-T10"
+                        }
+                    ],
+                    "image_url": "image/FCXF-X-03.png",
+                    "name": "测点-10",
+                    "location": [
+                        878,
+                        340
+                    ]
+                },
+                {
+                    "subset": [
+                        {
+                            "name": "FCXF-X-03-A01"
+                        }
+                    ],
+                    "image_url": "image/FCXF-X-03.png",
+                    "name": "测点-11",
+                    "location": [
+                        319,
+                        387
+                    ]
+                },
+                {
+                    "subset": [
+                        {
+                            "name": "FCXF-X-03-A02"
+                        }
+                    ],
+                    "image_url": "image/FCXF-X-03.png",
+                    "name": "测点-12",
+                    "location": [
+                        844,
+                        387
+                    ]
+                }
+            ],
+            "image_url": "image/FCXF-X-03.png",
+            "name": "截面-03",
+            "location": []
+        }
+    ],
+    "image_url": "",
+    "name": "保阜分离式立交",
+    "location": [
+        114.052989,
+        38.881409
+    ]
+}
