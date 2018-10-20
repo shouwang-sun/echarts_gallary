@@ -1,0 +1,377 @@
+[
+    {
+        "center": [
+            220,
+            187
+        ],
+        "children": [
+            {
+                "children": [],
+                "name": "加速度传感器"
+            },
+            {
+                "children": [
+                    {
+                        "name": "FCXF-X-01-D01",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-01-D02",
+                        "value": 1
+                    }
+                ],
+                "name": "位移传感器"
+            },
+            {
+                "children": [],
+                "name": "应变传感器"
+            },
+            {
+                "children": [],
+                "name": "温度传感器"
+            },
+            {
+                "children": [],
+                "name": "振弦应变传感器"
+            },
+            {
+                "children": [
+                    {
+                        "name": "FCXF-X-01-T01",
+                        "value": 1
+                    }
+                ],
+                "name": "振弦温度传感器"
+            }
+        ],
+        "name": "FCXF-X-01"
+    },
+    {
+        "center": [
+            408,
+            183
+        ],
+        "children": [
+            {
+                "children": [
+                    {
+                        "name": "FCXF-X-02-A01",
+                        "value": 1
+                    }
+                ],
+                "name": "加速度传感器"
+            },
+            {
+                "children": [
+                    {
+                        "name": "FCXF-X-02-D01",
+                        "value": 1
+                    }
+                ],
+                "name": "位移传感器"
+            },
+            {
+                "children": [
+                    {
+                        "name": "FCXF-X-02-S01",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-02-S02",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-02-S03",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-02-S04",
+                        "value": 1
+                    }
+                ],
+                "name": "应变传感器"
+            },
+            {
+                "children": [
+                    {
+                        "name": "FCXF-X-02-T01",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-02-T02",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-02-T03",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-02-T04",
+                        "value": 1
+                    }
+                ],
+                "name": "温度传感器"
+            },
+            {
+                "children": [],
+                "name": "振弦应变传感器"
+            },
+            {
+                "children": [],
+                "name": "振弦温度传感器"
+            }
+        ],
+        "name": "FCXF-X-02"
+    },
+    {
+        "center": [
+            623,
+            188
+        ],
+        "children": [
+            {
+                "children": [
+                    {
+                        "name": "FCXF-X-03-A01",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-03-A02",
+                        "value": 1
+                    }
+                ],
+                "name": "加速度传感器"
+            },
+            {
+                "children": [
+                    {
+                        "name": "FCXF-X-03-D01",
+                        "value": 1
+                    }
+                ],
+                "name": "位移传感器"
+            },
+            {
+                "children": [
+                    {
+                        "name": "FCXF-X-03-S01",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-03-S02",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-03-S03",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-03-S04",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-03-S05",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-03-S06",
+                        "value": 1
+                    }
+                ],
+                "name": "应变传感器"
+            },
+            {
+                "children": [
+                    {
+                        "name": "FCXF-X-03-T01",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-03-T02",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-03-T03",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-03-T04",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-03-T05",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-03-T06",
+                        "value": 1
+                    }
+                ],
+                "name": "温度传感器"
+            },
+            {
+                "children": [
+                    {
+                        "name": "FCXF-X-03-S07",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-03-S08",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-03-S09",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-03-S10",
+                        "value": 1
+                    }
+                ],
+                "name": "振弦应变传感器"
+            },
+            {
+                "children": [
+                    {
+                        "name": "FCXF-X-03-T07",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-03-T08",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-03-T09",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-03-T10",
+                        "value": 1
+                    }
+                ],
+                "name": "振弦温度传感器"
+            }
+        ],
+        "name": "FCXF-X-03"
+    },
+    {
+        "center": [
+            837,
+            196
+        ],
+        "children": [
+            {
+                "children": [
+                    {
+                        "name": "FCXF-X-04-A01",
+                        "value": 1
+                    }
+                ],
+                "name": "加速度传感器"
+            },
+            {
+                "children": [
+                    {
+                        "name": "FCXF-X-04-D01",
+                        "value": 1
+                    }
+                ],
+                "name": "位移传感器"
+            },
+            {
+                "children": [
+                    {
+                        "name": "FCXF-X-04-S01",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-04-S02",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-04-S03",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-04-S04",
+                        "value": 1
+                    }
+                ],
+                "name": "应变传感器"
+            },
+            {
+                "children": [
+                    {
+                        "name": "FCXF-X-04-T01",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-04-T02",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-04-T03",
+                        "value": 1
+                    },
+                    {
+                        "name": "FCXF-X-04-T04",
+                        "value": 1
+                    }
+                ],
+                "name": "温度传感器"
+            },
+            {
+                "children": [],
+                "name": "振弦应变传感器"
+            },
+            {
+                "children": [],
+                "name": "振弦温度传感器"
+            }
+        ],
+        "name": "FCXF-X-04"
+    },
+    {
+        "center": [
+            1025,
+            216
+        ],
+        "children": [
+            {
+                "children": [],
+                "name": "加速度传感器"
+            },
+            {
+                "children": [
+                    {
+                        "name": "FCXF-X-05-D01",
+                        "value": 1
+                    }
+                ],
+                "name": "位移传感器"
+            },
+            {
+                "children": [],
+                "name": "应变传感器"
+            },
+            {
+                "children": [],
+                "name": "温度传感器"
+            },
+            {
+                "children": [],
+                "name": "振弦应变传感器"
+            },
+            {
+                "children": [
+                    {
+                        "name": "FCXF-X-05-T01",
+                        "value": 1
+                    }
+                ],
+                "name": "振弦温度传感器"
+            }
+        ],
+        "name": "FCXF-X-05"
+    }
+]
