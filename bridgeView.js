@@ -2,38 +2,23 @@
 let myChart = echarts.init(document.getElementById('chartDiv'));
 window.onresize = myChart.resize;
 
-// 数据集
+// 加载数据集
 $.ajaxSettings.async = false;
+let data = null;
+$.getJSON('data/sensorBasicInfo.json', function (ret) {data = new sensorData(ret)});
 let view = {};
 $.getJSON('data/bridgeView.json', function (ret) {view = ret} );
-let basicInfo = {};
-$.getJSON('data/sensorBasicInfo.json', function (ret) {basicInfo = ret});
 $.ajaxSettings.async = true;
-
-let warningThreshold = {};
-let realtimeData ={};
-for (let sensor in basicInfo) {
-	warningThreshold[sensor] = [-8, -5, 5, 8];
-	realtimeData[sensor] = 0;
-}
-
-// 生成绘图数据集
-let data = $.extend({}, basicInfo);
-for (let sensor in data) {
-	data[sensor].activated = 1;
-}
-updatingData = getWarningStatus(realtimeData, warningThreshold);
-$.extend(true, data, updatingData);
 
 let center = [];
 let dataset = [];
-view.subset.forEach(function (element) {
-	center.push(element.center);
+view.forEach(function (group) {
 	let source = [];
-	element.subset.forEach(function (sensor) {
-		source.push(data[sensor]);
-	})
+	group.sensors.forEach(function (sensor) {
+		source.push(data.plotData[sensor]);
+	});
 	dataset.push({source});
+    center.push(group.center);
 });
 
 // 图表设置
@@ -73,8 +58,10 @@ for (let i=0; i<center.length; i++) {
 			borderColor: 'rgb(255, 255, 255)',
 			borderWidth: 1
 		},
-		label: {show: false},
-		 labelLine: {
+		label: {
+			show: false
+		},
+		labelLine: {
 		    length: 30,
 		 	length2: 10
 		 },
@@ -155,16 +142,16 @@ for (let i=0; i<center.length; i++) {
 	pieChart.datasetIndex = i;
 	option.series.push(pieChart);
 }
-console.log(option);
 myChart.setOption(option);
 
 // 用户交互设置
 let selectedSensors = new Set();
-for ( sensor in basicInfo ) {
+for (let sensor in data.plotData) {
 	selectedSensors.add(sensor);
 }
 let currentSensor = new String();
 
+// 单击双击事件设置
 let callbacks = {
 	click(params) {
 		if ( params.componentType == 'series' && params.componentSubType == 'pie' ) {
@@ -188,6 +175,7 @@ for(let event in callbacks) {
 	myChart.on(event, callbacks[event]);
 }
 
+// 在视图中删除当前选中传感器
 document.onkeydown = function (event) {
 	if ( event.code == 'Delete' && currentSensor != '' ) {
 		data[currentSensor].activated = null; // 若data的某一项的activated值为null，那么它不会在绘图中显示出来。
@@ -197,12 +185,15 @@ document.onkeydown = function (event) {
 
 // 数据更新
 setInterval(function () {
-	for (let sensor in realtimeData) {
+    realtimeData = {};
+	for (let sensor in data.plotData) {
 		realtimeData[sensor] = Math.random() * 10;
 	}
-	updatingData = getWarningStatus(realtimeData, warningThreshold);
-	$.extend(true, data, updatingData);
+
+	data.update(realtimeData);
+
 	myChart.setOption(option);
+
 	for ( let i=0; i<dataset.length; i++ ) {
 		for ( let j=0; j<dataset[i].source.length; j++ ) {
 			if ( selectedSensors.has(dataset[i].source[j].name) ) {
@@ -219,35 +210,53 @@ setInterval(function () {
 			}
 		}
 	}
+
 }, 1000);
 
-function getWarningStatus(realtimeData, warningThreshold) {
-	let updatingData = {};
-	for ( sensor in realtimeData ) {
-		let value = realtimeData[sensor];
-		let threshold = warningThreshold[sensor];
+function sensorData(basicInfo) {
+	this.plotData = {};
+	this.threshold = {};
+	for (sensor in basicInfo) {
+		let name = basicInfo[sensor].name;
+		let type = basicInfo[sensor].type;
+		let unit = basicInfo[sensor].unit;
+		let threshold = basicInfo[sensor].threshold;
+		let activated = 1;
+		let value = null;
 		let status = null;
-		if ( value <= threshold[0] ) {
-			status = 'red';
-		}
-		else if ( value > threshold[0] && value <= threshold[1] ) {
-			status = 'yellow';
-		}
-		else if ( value > threshold[1] && value < threshold[2] ) {
-			status = 'green';
-		}
-		else if ( value >= threshold[2] && value < threshold[3] ) {
-			status = 'yellow';
-		}
-		else if ( value >= threshold[3] ) {
-			status = 'red';
-		}
-		else {
-			console.log('invalid warning thresholds');
-		}
-		updatingData[sensor] = {value, status}
+		
+		this.plotData[sensor] = {name, type, unit, activated, value, status};
+		this.threshold[sensor] = threshold;
 	}
-	return updatingData;
+	
+	this.update = function (realtimeData) {
+		for (sensor in this.plotData) {
+			let value = realtimeData[sensor];
+			let threshold = this.threshold[sensor];
+			let status = null;
+
+            if ( value <= threshold[0] ) {
+                status = 'red';
+            }
+            else if ( value > threshold[0] && value <= threshold[1] ) {
+                status = 'yellow';
+            }
+            else if ( value > threshold[1] && value < threshold[2] ) {
+                status = 'green';
+            }
+            else if ( value >= threshold[2] && value < threshold[3] ) {
+                status = 'yellow';
+            }
+            else if ( value >= threshold[3] ) {
+                status = 'red';
+            }
+            else {
+                console.log('invalid warning thresholds');
+            }
+            this.plotData[sensor].value = value;
+            this.plotData[sensor].status = status;
+		}
+    }
 }
 
 /* vim:set ts=4 sw=4 sts=4: */

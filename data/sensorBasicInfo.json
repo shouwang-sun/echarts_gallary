@@ -1,1 +1,346 @@
-{"FCXF-X-03-S08": {"url": "", "type": "\u632f\u5f26\u4f20\u611f\u5668", "name": "FCXF-X-03-S08", "unit": "\u03bc\u03b5", "center": [289, 343]}, "FCXF-X-03-S09": {"url": "", "type": "\u632f\u5f26\u4f20\u611f\u5668", "name": "FCXF-X-03-S09", "unit": "\u03bc\u03b5", "center": [878, 300]}, "FCXF-X-03-S10": {"url": "", "type": "\u632f\u5f26\u4f20\u611f\u5668", "name": "FCXF-X-03-S10", "unit": "\u03bc\u03b5", "center": [878, 340]}, "FCXF-X-02-A01": {"url": "", "type": "\u52a0\u901f\u5ea6\u4f20\u611f\u5668", "name": "FCXF-X-02-A01", "unit": "gal", "center": [319, 387]}, "FCXF-X-03-S03": {"url": "", "type": "\u5e94\u53d8\u4f20\u611f\u5668", "name": "FCXF-X-03-S03", "unit": "\u03bc\u03b5", "center": [289, 363]}, "FCXF-X-03-S02": {"url": "", "type": "\u5e94\u53d8\u4f20\u611f\u5668", "name": "FCXF-X-03-S02", "unit": "\u03bc\u03b5", "center": [289, 323]}, "FCXF-X-03-S01": {"url": "", "type": "\u5e94\u53d8\u4f20\u611f\u5668", "name": "FCXF-X-03-S01", "unit": "\u03bc\u03b5", "center": [289, 283]}, "FCXF-X-03-S07": {"url": "", "type": "\u632f\u5f26\u4f20\u611f\u5668", "name": "FCXF-X-03-S07", "unit": "\u03bc\u03b5", "center": [289, 303]}, "FCXF-X-03-S06": {"url": "", "type": "\u5e94\u53d8\u4f20\u611f\u5668", "name": "FCXF-X-03-S06", "unit": "\u03bc\u03b5", "center": [878, 360]}, "FCXF-X-03-S05": {"url": "", "type": "\u5e94\u53d8\u4f20\u611f\u5668", "name": "FCXF-X-03-S05", "unit": "\u03bc\u03b5", "center": [878, 320]}, "FCXF-X-03-S04": {"url": "", "type": "\u5e94\u53d8\u4f20\u611f\u5668", "name": "FCXF-X-03-S04", "unit": "\u03bc\u03b5", "center": [878, 280]}, "FCXF-X-03-T04": {"url": "", "type": "\u6e29\u5ea6\u4f20\u611f\u5668", "name": "FCXF-X-03-T04", "unit": "\u2103", "center": [878, 280]}, "FCXF-X-03-T05": {"url": "", "type": "\u6e29\u5ea6\u4f20\u611f\u5668", "name": "FCXF-X-03-T05", "unit": "\u2103", "center": [878, 320]}, "FCXF-X-03-T06": {"url": "", "type": "\u6e29\u5ea6\u4f20\u611f\u5668", "name": "FCXF-X-03-T06", "unit": "\u2103", "center": [878, 360]}, "FCXF-X-02-A02": {"url": "", "type": "\u52a0\u901f\u5ea6\u4f20\u611f\u5668", "name": "FCXF-X-02-A02", "unit": "gal", "center": [844, 387]}, "FCXF-X-03-T01": {"url": "", "type": "\u6e29\u5ea6\u4f20\u611f\u5668", "name": "FCXF-X-03-T01", "unit": "\u2103", "center": [289, 283]}, "FCXF-X-03-T02": {"url": "", "type": "\u6e29\u5ea6\u4f20\u611f\u5668", "name": "FCXF-X-03-T02", "unit": "\u2103", "center": [289, 323]}, "FCXF-X-03-T03": {"url": "", "type": "\u6e29\u5ea6\u4f20\u611f\u5668", "name": "FCXF-X-03-T03", "unit": "\u2103", "center": [289, 363]}}
+{
+    "FCXF-X-01-D01": {
+        "location": [
+            0,
+            64,
+            -1500
+        ],
+        "name": "FCXF-X-01-D01",
+        "threshold": [-20, -10, 10, 20],
+        "type": "位移传感器",
+        "unit": "mm"
+    },
+    "FCXF-X-01-D02": {
+        "location": [
+            -425,
+            70,
+            -1500
+        ],
+        "name": "FCXF-X-01-D02",
+        "threshold": [-20, -10, 10, 20],
+        "type": "位移传感器",
+        "unit": "mm"
+    },
+    "FCXF-X-01-T01": {
+        "location": [0, 64, -1500],
+        "name": "FCXF-X-01-T01",
+        "threshold": [-30, -20, 30, 50],
+        "type": "振弦温度传感器",
+        "unit": "℃"
+    },
+    "FCXF-X-02-A01": {
+        "location": [-400, 32, -800],
+        "name": "FCXF-X-02-A01",
+        "threshold": [-1, -0.5, 0.5, 1],
+        "type": "加速度传感器",
+        "unit": "gal"
+    },
+    "FCXF-X-02-D01": {
+        "location": [-425, 70, -800],
+        "name": "FCXF-X-02-D01",
+        "threshold": [-20, -10, 10, 20],
+        "type": "位移传感器",
+        "unit": "mm"
+    },
+    "FCXF-X-02-S01": {
+        "location": [-425, 120, -800],
+        "name": "FCXF-X-02-S01",
+        "threshold": [-1000000, -1000000, 100, 150],
+        "type": "应变传感器",
+        "unit": "με"
+    },
+    "FCXF-X-02-S02": {
+        "location": [-425, 62, -800],
+        "name": "FCXF-X-02-S02",
+        "threshold": [-1000000, -1000000, 100, 150],
+        "type": "应变传感器",
+        "unit": "με"
+    },
+    "FCXF-X-02-S03": {
+        "location": [425, 120, -800],
+        "name": "FCXF-X-02-S03",
+        "threshold": [-1000000, -1000000, 100, 150],
+        "type": "应变传感器",
+        "unit": "με"
+    },
+    "FCXF-X-02-S04": {
+        "location": [425, 62, -800],
+        "name": "FCXF-X-02-S04",
+        "threshold": [-1000000, -1000000, 100, 150],
+        "type": "应变传感器",
+        "unit": "με"
+    },
+    "FCXF-X-02-T01": {
+        "location": [-425, 120, -800],
+        "name": "FCXF-X-02-T01",
+        "threshold": [-30, -20, 30, 50],
+        "type": "温度传感器",
+        "unit": "℃"
+    },
+    "FCXF-X-02-T02": {
+        "location": [-425, 62, -800],
+        "name": "FCXF-X-02-T02",
+        "threshold": [-30, -20, 30, 50],
+        "type": "温度传感器",
+        "unit": "℃"
+    },
+    "FCXF-X-02-T03": {
+        "location": [425, 120, -800],
+        "name": "FCXF-X-02-T03",
+        "threshold": [-30, -20, 30, 50],
+        "type": "温度传感器",
+        "unit": "℃"
+    },
+    "FCXF-X-02-T04": {
+        "location": [425, 62, -800],
+        "name": "FCXF-X-02-T04",
+        "threshold": [-30, -20, 30, 50],
+        "type": "温度传感器",
+        "unit": "℃"
+    },
+    "FCXF-X-03-A01": {
+        "location": [-400, 0, 0],
+        "name": "FCXF-X-03-A01",
+        "threshold": [-1, -0.5, 0.5, 1],
+        "type": "加速度传感器",
+        "unit": "gal"
+    },
+    "FCXF-X-03-A02": {
+        "location": [400, 0, 0],
+        "name": "FCXF-X-03-A02",
+        "threshold": [-1, -0.5, 0.5, 1],
+        "type": "加速度传感器",
+        "unit": "gal"
+    },
+    "FCXF-X-03-D01": {
+        "location": [-425, 70, 0],
+        "name": "FCXF-X-03-D01",
+        "threshold": [-20, -10, 10, 20],
+        "type": "位移传感器",
+        "unit": "mm"
+    },
+    "FCXF-X-03-S01": {
+        "location": [-425, 110, 0],
+        "name": "FCXF-X-03-S01",
+        "threshold": [-1000000, -1000000, 100, 150],
+        "type": "应变传感器",
+        "unit": "με"
+    },
+    "FCXF-X-03-S02": {
+        "location": [-425, 70, 0],
+        "name": "FCXF-X-03-S02",
+        "threshold": [-1000000, -1000000, 100, 150],
+        "type": "应变传感器",
+        "unit": "με"
+    },
+    "FCXF-X-03-S03": {
+        "location": [-425, 30, 0],
+        "name": "FCXF-X-03-S03",
+        "threshold": [-1000000, -1000000, 100, 150],
+        "type": "应变传感器",
+        "unit": "με"
+    },
+    "FCXF-X-03-S04": {
+        "location": [425, 110, 0],
+        "name": "FCXF-X-03-S04",
+        "threshold": [-1000000, -1000000, 100, 150],
+        "type": "应变传感器",
+        "unit": "με"
+    },
+    "FCXF-X-03-S05": {
+        "location": [425, 70, 0],
+        "name": "FCXF-X-03-S05",
+        "threshold": [-1000000, -1000000, 100, 150],
+        "type": "应变传感器",
+        "unit": "με"
+    },
+    "FCXF-X-03-S06": {
+        "location": [425, 30, 0],
+        "name": "FCXF-X-03-S06",
+        "threshold": [-1000000, -1000000, 100, 150],
+        "type": "应变传感器",
+        "unit": "με"
+    },
+    "FCXF-X-03-S07": {
+        "location": [-425, 90, 0],
+        "name": "FCXF-X-03-S07",
+        "threshold": [-1000000, -1000000, 100, 150],
+        "type": "振弦应变传感器",
+        "unit": "με"
+    },
+    "FCXF-X-03-S08": {
+        "location": [-425, 50, 0],
+        "name": "FCXF-X-03-S08",
+        "threshold": [-1000000, -1000000, 100, 150],
+        "type": "振弦应变传感器",
+        "unit": "με"
+    },
+    "FCXF-X-03-S09": {
+        "location": [425, 90, 0],
+        "name": "FCXF-X-03-S09",
+        "threshold": [-1000000, -1000000, 100, 150],
+        "type": "振弦应变传感器",
+        "unit": "με"
+    },
+    "FCXF-X-03-S10": {
+        "location": [425, 50, 0],
+        "name": "FCXF-X-03-S10",
+        "threshold": [-1000000, -1000000, 100, 150],
+        "type": "振弦应变传感器",
+        "unit": "με"
+    },
+    "FCXF-X-03-T01": {
+        "location": [-425, 110, 0],
+        "name": "FCXF-X-03-T01",
+        "threshold": [-30, -20, 30, 50],
+        "type": "温度传感器",
+        "unit": "℃"
+    },
+    "FCXF-X-03-T02": {
+        "location": [-425, 70, 0],
+        "name": "FCXF-X-03-T02",
+        "threshold": [-30, -20, 30, 50],
+        "type": "温度传感器",
+        "unit": "℃"
+    },
+    "FCXF-X-03-T03": {
+        "location": [-425, 30, 0],
+        "name": "FCXF-X-03-T03",
+        "threshold": [-30, -20, 30, 50],
+        "type": "温度传感器",
+        "unit": "℃"
+    },
+    "FCXF-X-03-T04": {
+        "location": [425, 110, 0],
+        "name": "FCXF-X-03-T04",
+        "threshold": [-30, -20, 30, 50],
+        "type": "温度传感器",
+        "unit": "℃"
+    },
+    "FCXF-X-03-T05": {
+        "location": [425, 70, 0],
+        "name": "FCXF-X-03-T05",
+        "threshold": [-30, -20, 30, 50],
+        "type": "温度传感器",
+        "unit": "℃"
+    },
+    "FCXF-X-03-T06": {
+        "location": [425, 30, 0],
+        "name": "FCXF-X-03-T06",
+        "threshold": [-30, -20, 30, 50],
+        "type": "温度传感器",
+        "unit": "℃"
+    },
+    "FCXF-X-03-T07": {
+        "location": [-425, 90, 0],
+        "name": "FCXF-X-03-T07",
+        "threshold": [-30, -20, 30, 50],
+        "type": "振弦温度传感器",
+        "unit": "℃"
+    },
+    "FCXF-X-03-T08": {
+        "location": [-425, 50, 0],
+        "name": "FCXF-X-03-T08",
+        "threshold": [-30, -20, 30, 50],
+        "type": "振弦温度传感器",
+        "unit": "℃"
+    },
+    "FCXF-X-03-T09": {
+        "location": [425, 90, 0],
+        "name": "FCXF-X-03-T09",
+        "threshold": [-30, -20, 30, 50],
+        "type": "振弦温度传感器",
+        "unit": "℃"
+    },
+    "FCXF-X-03-T10": {
+        "location": [425, 50, 0],
+        "name": "FCXF-X-03-T10",
+        "threshold": [-30, -20, 30, 50],
+        "type": "振弦温度传感器",
+        "unit": "℃"
+    },
+    "FCXF-X-04-A01": {
+        "location": [-400, -32, 800],
+        "name": "FCXF-X-04-A01",
+        "threshold": [-1, -0.5, 0.5, 1],
+        "type": "加速度传感器",
+        "unit": "gal"
+    },
+    "FCXF-X-04-D01": {
+        "location": [-425, 70, 800],
+        "name": "FCXF-X-04-D01",
+        "threshold": [-20, -10, 10, 20],
+        "type": "位移传感器",
+        "unit": "mm"
+    },
+    "FCXF-X-04-S01": {
+        "location": [-425, 58, 800],
+        "name": "FCXF-X-04-S01",
+        "threshold": [-1000000, -1000000, 100, 150],
+        "type": "应变传感器",
+        "unit": "με"
+    },
+    "FCXF-X-04-S02": {
+        "location": [-425, -2, 800],
+        "name": "FCXF-X-04-S02",
+        "threshold": [-1000000, -1000000, 100, 150],
+        "type": "应变传感器",
+        "unit": "με"
+    },
+    "FCXF-X-04-S03": {
+        "location": [425, 58, 800],
+        "name": "FCXF-X-04-S03",
+        "threshold": [-1000000, -1000000, 100, 150],
+        "type": "应变传感器",
+        "unit": "με"
+    },
+    "FCXF-X-04-S04": {
+        "location": [425, -2, 800],
+        "name": "FCXF-X-04-S04",
+        "threshold": [-1000000, -1000000, 100, 150],
+        "type": "应变传感器",
+        "unit": "με"
+    },
+    "FCXF-X-04-T01": {
+        "location": [-425, 58, 800],
+        "name": "FCXF-X-04-T01",
+        "threshold": [-30, -20, 30, 50],
+        "type": "温度传感器",
+        "unit": "℃"
+    },
+    "FCXF-X-04-T02": {
+        "location": [-425, -2, 800],
+        "name": "FCXF-X-04-T02",
+        "threshold": [-30, -20, 30, 50],
+        "type": "温度传感器",
+        "unit": "℃"
+    },
+    "FCXF-X-04-T03": {
+        "location": [425, 58, 800],
+        "name": "FCXF-X-04-T03",
+        "threshold": [-30, -20, 30, 50],
+        "type": "温度传感器",
+        "unit": "℃"
+    },
+    "FCXF-X-04-T04": {
+        "location": [425, -2, 800],
+        "name": "FCXF-X-04-T04",
+        "threshold": [-30, -20, 30, 50],
+        "type": "温度传感器",
+        "unit": "℃"
+    },
+    "FCXF-X-05-D01": {
+        "location": [0, -64, 1500],
+        "name": "FCXF-X-05-D01",
+        "threshold": [-20, -10, 10, 20],
+        "type": "位移传感器",
+        "unit": "mm"
+    },
+    "FCXF-X-05-T01": {
+        "location": [0, -64, 1500],
+        "name": "FCXF-X-05-T01",
+        "threshold": [-30, -20, 30, 50],
+        "type": "振弦温度传感器",
+        "unit": "℃"
+    }
+}
